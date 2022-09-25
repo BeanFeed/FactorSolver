@@ -1,0 +1,15 @@
+/home/austind/Code/C#/Programs/FactorSolver/bin/Debug/net6.0/FactorSolver
+/home/austind/Code/C#/Programs/FactorSolver/bin/Debug/net6.0/FactorSolver.deps.json
+/home/austind/Code/C#/Programs/FactorSolver/bin/Debug/net6.0/FactorSolver.runtimeconfig.json
+/home/austind/Code/C#/Programs/FactorSolver/bin/Debug/net6.0/FactorSolver.dll
+/home/austind/Code/C#/Programs/FactorSolver/bin/Debug/net6.0/FactorSolver.pdb
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/FactorSolver.csproj.AssemblyReference.cache
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/FactorSolver.GeneratedMSBuildEditorConfig.editorconfig
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/FactorSolver.AssemblyInfoInputs.cache
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/FactorSolver.AssemblyInfo.cs
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/FactorSolver.csproj.CoreCompileInputs.cache
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/FactorSolver.dll
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/refint/FactorSolver.dll
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/FactorSolver.pdb
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/FactorSolver.genruntimeconfig.cache
+/home/austind/Code/C#/Programs/FactorSolver/obj/Debug/net6.0/ref/FactorSolver.dll

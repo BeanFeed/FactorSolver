@@ -5,10 +5,7 @@ namespace FactorSolver;
 class Program
 {
     private static char[] nums = new char[] {'0','1','2','3','4','5','6','7','8','9'};
-    private static bool IsEven(int num)
-    {
-        return num % 2 == 0;
-    }
+
     private static bool NoDeci(float a) { return a % 1 == 0; }
     private static int GCF(int a, int b)
     {
@@ -83,6 +80,7 @@ class Program
                     par1 = par1.Replace("1x", "x");
                     par2 = par2.Replace("-1x", "-x");
                     par2 = par2.Replace("1x", "x");
+                    if(par1 == par2) par2 = "^2";
                     return par1 + par2;
 
                 }
@@ -139,8 +137,9 @@ class Program
         }
         while(!validIn);
         string output = "";
-        if(a == 1) output = AIsOne(b,c, null);
-        else output = AGOne(a,b,c,null);
+        //if(a == 1) output = AIsOne(b,c, null);
+        //else output = AGOne(a,b,c,null);
+        output = AGOne(a,b,c,null);
         Console.WriteLine(output);
     }
 }

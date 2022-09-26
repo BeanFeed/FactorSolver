@@ -8,24 +8,32 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/home/austind/.nuget/packages/": {}
+    "C:\\Users\\Austin\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/austind/Code/C#/Programs/FactorSolver/FactorSolver.csproj",
+      "projectUniqueName": "C:\\Users\\Austin\\VsCode\\C#\\FactorSolver\\FactorSolver.csproj",
       "projectName": "FactorSolver",
-      "projectPath": "/home/austind/Code/C#/Programs/FactorSolver/FactorSolver.csproj",
-      "packagesPath": "/home/austind/.nuget/packages/",
-      "outputPath": "/home/austind/Code/C#/Programs/FactorSolver/obj/",
+      "projectPath": "C:\\Users\\Austin\\VsCode\\C#\\FactorSolver\\FactorSolver.csproj",
+      "packagesPath": "C:\\Users\\Austin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Austin\\VsCode\\C#\\FactorSolver\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/austind/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Austin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -59,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400-preview.22330.6\\RuntimeIdentifierGraph.json"
       }
     }
   }

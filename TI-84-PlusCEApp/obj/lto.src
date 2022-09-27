@@ -836,23 +836,23 @@ BB4_20:
 	section	.text,"ax",@progbits
 	public	_main
 _main:
-	ld	hl, -35
+	ld	hl, -98
 	call	__frameset
 	lea	hl, ix - 5
-	ld	(ix - 23), hl
+	ld	(ix - 83), hl
 	lea	hl, ix - 10
-	ld	(ix - 32), hl
+	ld	(ix - 92), hl
 	lea	hl, ix - 15
-	ld	(ix - 29), hl
+	ld	(ix - 89), hl
 	lea	hl, ix - 20
-	ld	(ix - 26), hl
+	ld	(ix - 86), hl
 	ld	iy, -3145600
 	call	_os_ClrLCD
 	call	_os_HomeUp
 	call	_os_DrawStatusBar
 	ld	hl, 5
 	push	hl
-	ld	hl, (ix - 23)
+	ld	hl, (ix - 83)
 	push	hl
 	ld	hl, _.str.10
 	push	hl
@@ -870,7 +870,7 @@ _main:
 	pop	hl
 	ld	hl, 5
 	push	hl
-	ld	hl, (ix - 32)
+	ld	hl, (ix - 92)
 	push	hl
 	ld	hl, _.str.11
 	push	hl
@@ -888,7 +888,7 @@ _main:
 	pop	hl
 	ld	hl, 5
 	push	hl
-	ld	hl, (ix - 29)
+	ld	hl, (ix - 89)
 	push	hl
 	ld	hl, _.str.12
 	push	hl
@@ -906,7 +906,7 @@ _main:
 	pop	hl
 	ld	hl, 5
 	push	hl
-	ld	hl, (ix - 26)
+	ld	hl, (ix - 86)
 	push	hl
 	ld	hl, _.str.13
 	push	hl
@@ -926,59 +926,65 @@ _main:
 	push	hl
 	ld	hl, _.str.14
 	push	hl
-	ld	hl, (ix - 32)
+	ld	hl, (ix - 92)
 	push	hl
 	call	_str_replace
-	pop	de
-	pop	de
-	pop	de
-	push	hl
-	call	_atoi
-	ld	(ix - 32), hl
+	ld	(ix - 92), hl
+	pop	hl
+	pop	hl
 	pop	hl
 	ld	hl, _.str.15
 	push	hl
 	ld	hl, _.str.14
 	push	hl
-	ld	hl, (ix - 29)
+	ld	hl, (ix - 89)
 	push	hl
 	call	_str_replace
-	pop	de
-	pop	de
-	pop	de
-	push	hl
-	call	_atoi
-	ld	(ix - 29), hl
+	ld	(ix - 95), hl
+	pop	hl
+	pop	hl
 	pop	hl
 	ld	hl, _.str.15
 	push	hl
 	ld	hl, _.str.14
 	push	hl
-	ld	hl, (ix - 26)
+	ld	hl, (ix - 86)
 	push	hl
 	call	_str_replace
-	pop	de
-	pop	de
-	pop	de
+	ld	(ix - 98), hl
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, (ix - 92)
+	push	hl
+	call	_atoi
+	ld	(ix - 89), hl
+	pop	hl
+	ld	hl, (ix - 95)
+	push	hl
+	call	_atoi
+	ld	(ix - 86), hl
+	pop	hl
+	ld	hl, (ix - 98)
 	push	hl
 	call	_atoi
 	push	hl
 	pop	bc
 	pop	hl
 	ld	de, 1
-	ld	hl, (ix - 32)
+	ld	hl, (ix - 89)
 	push	hl
 	pop	iy
 	or	a, a
 	sbc	hl, de
 	jr	nz, BB5_2
-	ld	hl, (ix - 23)
+	ld	hl, (ix - 83)
 	push	hl
 	push	bc
-	ld	hl, (ix - 29)
+	ld	hl, (ix - 86)
 	push	hl
 	call	_AIsOne
-	ld	(ix - 23), hl
+	ld	(ix - 83), hl
 	pop	de
 	pop	de
 	pop	de
@@ -987,7 +993,7 @@ _main:
 	pop	hl
 	ld	hl, _.str.4
 	push	hl
-	ld	hl, (ix - 23)
+	ld	hl, (ix - 83)
 	push	hl
 	call	_strcmp
 	pop	de
@@ -995,99 +1001,92 @@ _main:
 	add	hl, bc
 	or	a, a
 	sbc	hl, bc
-	jp	nz, BB5_8
-	jp	BB5_9
+	ld	hl, (ix - 83)
+	push	hl
+	call	nz, _free
+	jp	BB5_6
 BB5_2:
+	lea	hl, ix - 80
+	ld	(ix - 92), hl
 	push	bc
-	ld	hl, (ix - 29)
+	ld	hl, (ix - 86)
 	push	hl
 	push	iy
-	ld	(ix - 26), bc
+	ld	(ix - 95), bc
 	call	_GCF3
 	push	hl
 	pop	bc
 	pop	hl
 	pop	hl
 	pop	hl
-	ld	hl, (ix - 32)
+	ld	hl, (ix - 89)
 	call	__idivs
-	ld	(ix - 32), hl
-	ld	hl, (ix - 29)
-	call	__idivs
-	ld	(ix - 29), hl
-	ld	hl, (ix - 26)
-	ld	(ix - 26), bc
-	call	__idivs
-	ld	(ix - 35), hl
-	ld	hl, 60
 	push	hl
-	call	_malloc
-	ld	bc, (ix - 32)
-	pop	hl
-	push	bc
-	pop	hl
+	pop	iy
+	ld	hl, (ix - 86)
+	call	__idivs
+	ld	(ix - 89), hl
+	ld	hl, (ix - 95)
+	ld	(ix - 86), bc
+	call	__idivs
+	push	hl
+	pop	bc
+	lea	hl, iy
 	ld	de, 1
 	or	a, a
 	sbc	hl, de
 	jr	nz, BB5_4
-	ld	hl, (ix - 23)
+	ld	hl, (ix - 83)
 	push	hl
-	ld	hl, (ix - 35)
-	push	hl
-	ld	hl, (ix - 29)
+	push	bc
+	ld	hl, (ix - 89)
 	push	hl
 	call	_AIsOne
 	push	hl
-	pop	bc
+	pop	iy
 	jr	BB5_5
 BB5_4:
-	ld	hl, (ix - 23)
-	push	hl
-	ld	hl, (ix - 35)
-	push	hl
-	ld	hl, (ix - 29)
+	ld	hl, (ix - 83)
 	push	hl
 	push	bc
+	ld	hl, (ix - 89)
+	push	hl
+	push	iy
 	call	_AGOne
 	push	hl
-	pop	bc
+	pop	iy
 	pop	hl
 BB5_5:
 	pop	hl
 	pop	hl
 	pop	hl
-	ld	iy, (ix - 26)
-	lea	hl, iy
+	ld	bc, (ix - 86)
+	push	bc
+	pop	hl
 	ld	de, 1
 	or	a, a
 	sbc	hl, de
-	jr	z, BB5_7
-	push	bc
+	ld	(ix - 83), iy
 	push	iy
+	push	bc
 	ld	hl, _.str.16
 	push	hl
-	ld	hl, 60
+	ld	hl, (ix - 92)
 	push	hl
-	push	bc
-	ld	(ix - 23), bc
-	call	_snprintf
-	ld	bc, (ix - 23)
+	call	nz, _sprintf
 	pop	hl
 	pop	hl
 	pop	hl
 	pop	hl
-	pop	hl
-BB5_7:
-	ld	(ix - 23), bc
-	push	bc
+	ld	hl, (ix - 92)
+	push	hl
 	call	_os_PutStrLine
 	pop	hl
-BB5_8:
-	ld	hl, (ix - 23)
+	ld	hl, (ix - 83)
 	push	hl
 	call	_free
+BB5_6:
 	pop	hl
-BB5_9:
 	or	a, a
 	sbc	hl, hl
 	push	hl
@@ -1100,10 +1099,10 @@ BB5_9:
 	push	hl
 	call	_os_PutStrLine
 	pop	hl
-BB5_10:
+BB5_7:
 	call	_os_GetCSC
 	or	a, a
-	jr	z, BB5_10
+	jr	z, BB5_7
 	or	a, a
 	sbc	hl, hl
 	ld	sp, ix
@@ -1184,7 +1183,7 @@ _.str.13:
 	section	.rodata,"a",@progbits
 	private	_.str.14
 _.str.14:
-	db	"°", 0
+	db	26, 0
 
 	section	.rodata,"a",@progbits
 	private	_.str.15
@@ -1194,7 +1193,7 @@ _.str.15:
 	section	.rodata,"a",@progbits
 	private	_.str.16
 _.str.16:
-	db	"%d,%s", 0
+	db	"%d%s", 0
 
 	section	.rodata,"a",@progbits
 	private	_.str.17
@@ -1206,6 +1205,7 @@ _.str.17:
 	extern	__frameset
 	extern	_malloc
 	extern	_os_PutStrLine
+	extern	_sprintf
 	extern	_strstr
 	extern	_strcmp
 	extern	_strncpy

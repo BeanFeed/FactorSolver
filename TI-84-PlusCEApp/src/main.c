@@ -5,7 +5,8 @@
 #include <ti/getcsc.h>
 #include <ti/getkey.h>
 #include <stdio.h>
-
+#include <debug.h>
+#include <ti/tokens.h>
 char *str_replace(char *orig, char *rep, char *with) {
     char *result; // the return string
     char *ins;    // the next insert point
@@ -187,9 +188,16 @@ int main()
     os_SetCursorPos(3,0);
     os_GetStringInput("C: ", in3,5);
     os_SetCursorPos(4,0);
-    int a = atoi(str_replace(in1,"\xB0", "-"));
-    int b = atoi(str_replace(in2,"\xB0", "-"));
-    int c = atoi(str_replace(in3,"\xB0", "-"));
+    dbg_printf("1A: %s, B: %s, C: %s\n",in1,in2,in3);
+    //dbg_printf("\"\\x%02X\"\n", in2[0]);
+    char *iin1 = str_replace(in1,"\x1A", "-");
+    char *iin2 = str_replace(in2,"\x1A", "-");
+    char *iin3 = str_replace(in3,"\x1A", "-");
+    int a = atoi(iin1);
+    int b = atoi(iin2);
+    int c = atoi(iin3);
+
+    dbg_printf("A: %d, B: %d, C: %d\n",a,b,c);
     if(a == 1)
     {
         char *out = AIsOne(b,c,in0);
@@ -204,18 +212,20 @@ int main()
         c /= gcf;
         if(a == 1)
         {
-            char *out = malloc(60);
-            out = AIsOne(b,c,in0);
-            if(gcf != 1) snprintf(out, 60,"%d,%s",gcf,out);
-            os_PutStrLine(out);
+            char *out = AIsOne(b,c,in0);
+            char out1[60];
+            dbg_printf("%s\n",out);
+            if(gcf != 1) sprintf(out1,"%d%s",gcf,out);
+            dbg_printf("%s\n",out1);
+            os_PutStrLine(out1);
             free(out);
         }
         else
         {
-            char *out = malloc(60);
-            out = AGOne(a,b,c,in0);
-            if(gcf != 1) snprintf(out, 60,"%d,%s",gcf,out);
-            os_PutStrLine(out);
+            char *out = AGOne(a,b,c,in0);
+            char out1[60];
+            if(gcf != 1) sprintf(out1, "%d%s",gcf,out);
+            os_PutStrLine(out1);
             free(out);
         }
     }

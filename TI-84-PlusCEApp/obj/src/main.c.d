@@ -11,4 +11,6 @@ obj/src/main.c.bc: src\main.c \
   C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\ti\getcsc.h \
   C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\ti\getkey.h \
   C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\stdio.h \
-  C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\stdarg.h
+  C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\stdarg.h \
+  C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\debug.h \
+  C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\ti\tokens.h

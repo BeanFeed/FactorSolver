@@ -74,7 +74,7 @@ char *AIsOne(int b, int c, char varChar[])
             }
         }
     }
-    return "No Solution";
+    return "Cannot Factor";
 }
 
 int GCF(int a, int b)
@@ -152,7 +152,7 @@ char *AGOne(int a, int b, int c, char varChar[])
                     //printf("checkpoint9\n");
                     g2gcf *= -1;
                 }
-                if(strcmp(out1,out2) != 0) return "No Solution";
+                if(strcmp(out1,out2) != 0) return "Cannot Factor";
                 sign2 = "+";
                 if(g2gcf < 0) sign2 = "";
                 snprintf(out2,20,"(%d%s%s%d)",g1gcf,varChar,sign2,g2gcf);
@@ -166,7 +166,7 @@ char *AGOne(int a, int b, int c, char varChar[])
             }
         }
     }
-    return "No Solution";
+    return "Cannot Factor";
 }
 
 int main()
@@ -184,7 +184,7 @@ int main()
     {
         char *out = AIsOne(b,c,"x");
         printf("%s",out);
-        if(strcmp(out,"No Solution") != 0) free(out);
+        if(strcmp(out,"Cannot Factor") != 0) free(out);
     }
     else
     {

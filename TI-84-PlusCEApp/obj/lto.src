@@ -1134,7 +1134,7 @@ _.str.3:
 	section	.rodata,"a",@progbits
 	private	_.str.4
 _.str.4:
-	db	"No Solution", 0
+	db	"Cannot Factor", 0
 
 	section	.rodata,"a",@progbits
 	private	_.str.5

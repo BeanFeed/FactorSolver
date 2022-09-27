@@ -9,7 +9,7 @@ Section          Base   Top    High   Length
 .fini            D1A9C5 D1A9F9            34h
 .text            D1A9F9 D1D54E          2B55h
 .data            D1D54E D1D551             3h
-.rodata          D1D551 D1D712           1C1h
+.rodata          D1D551 D1D714           1C3h
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -143,16 +143,16 @@ _.str.1                   = D1D6AA
 _.str.2                   = D1D6AC
 _.str.3                   = D1D6B5
 _.str.4                   = D1D6B8
-_.str.5                   = D1D6C4
-_.str.6                   = D1D6CF
-_.str.7                   = D1D6D3
-_.str.8                   = D1D6D6
-_.str.9                   = D1D6D9
-_.str.10                  = D1D6DB
-_.str.11                  = D1D6E6
-_.str.12                  = D1D6EA
-_.str.13                  = D1D6EE
-_.str.14                  = D1D6F2
-_.str.15                  = D1D6F4
-_.str.16                  = D1D6F6
-_.str.17                  = D1D6FC
+_.str.5                   = D1D6C6
+_.str.6                   = D1D6D1
+_.str.7                   = D1D6D5
+_.str.8                   = D1D6D8
+_.str.9                   = D1D6DB
+_.str.10                  = D1D6DD
+_.str.11                  = D1D6E8
+_.str.12                  = D1D6EC
+_.str.13                  = D1D6F0
+_.str.14                  = D1D6F4
+_.str.15                  = D1D6F6
+_.str.16                  = D1D6F8
+_.str.17                  = D1D6FE

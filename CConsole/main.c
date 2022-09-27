@@ -51,9 +51,9 @@ char *str_replace(char *orig, char *rep, char *with) {
 
 char *AIsOne(int b, int c, char varChar[])
 {
-    for (int i = -100; i < 100; i++)
+    for (int i = -200; i < 200; i++)
     {
-        for (int k = -100; k < 100; k++)
+        for (int k = -200; k < 200; k++)
         {
             if (i + k == b && i * k == c)
             {
@@ -119,9 +119,9 @@ char *AGOne(int a, int b, int c, char varChar[])
     */
 
     //printf("a:%d\nb:%d\nc:%d\n",a,b,c);
-    for(int i = -500; i < 500; i++)
+    for(int i = -250; i < 250; i++)
     {
-        for(int k = -500; k < 500; k++)
+        for(int k = -250; k < 250; k++)
         {
             if(i + k == b && i * k == c * a)
             {

@@ -160,10 +160,8 @@ char *AGOne(int a, int b, int c, char varChar[])
                 sign2 = "+";
                 if(g2gcf < 0) sign2 = "";
                 snprintf(out2,20,"(%d%s%s%d)",g1gcf,varChar,sign2,g2gcf);
-                out1 = str_replace(out1, "-1x","-x");
-                out1 = str_replace(out1, "1x","x");
-                out2 = str_replace(out2, "-1x","-x");
-                out2 = str_replace(out2, "1x","x");
+                out1 = str_replace(out1, "1","");
+                out2 = str_replace(out2, "1","");
                 if(strcmp(out1,out2) == 0) out2 = "^2";
                 //if(gcf != 0) snprintf(out1,20,"%d%s",gcf,out1);
                 return strcat(out1,out2);
@@ -207,27 +205,40 @@ int main()
     else
     {
         int gcf = GCF3(a,b,c);
-        a /= gcf;
-        b /= gcf;
-        c /= gcf;
-        if(a == 1)
+        dbg_printf("GCF: %d\n",gcf);
+        if(gcf < 1)
         {
-            char *out = AIsOne(b,c,in0);
-            char out1[60];
-            dbg_printf("%s\n",out);
-            if(gcf != 1) sprintf(out1,"%d%s",gcf,out);
-            dbg_printf("%s\n",out1);
-            os_PutStrLine(out1);
-            free(out);
+            a /= gcf;
+            b /= gcf;
+            c /= gcf;
+            if(a == 1)
+            {
+                char *out = AIsOne(b,c,in0);
+                char out1[60];
+                dbg_printf("%s\n",out);
+                if(gcf != 1) sprintf(out1,"%d%s",gcf,out);
+                dbg_printf("%s\n",out1);
+                os_PutStrLine(out1);
+                free(out);
+            }
+            else
+            {
+                char *out = AGOne(a,b,c,in0);
+                char out1[60];
+                dbg_printf("%s\n",out);
+                if(gcf != 1) sprintf(out1, "%d%s",gcf,out);
+                dbg_printf("%s\n",out1);
+                os_PutStrLine(out1);
+                free(out);
+            }
         }
         else
         {
             char *out = AGOne(a,b,c,in0);
-            char out1[60];
-            if(gcf != 1) sprintf(out1, "%d%s",gcf,out);
-            os_PutStrLine(out1);
+            os_PutStrLine(out);
             free(out);
         }
+        
     }
     os_SetCursorPos(5,0);
     os_PutStrLine("Press Any Key To Exit");

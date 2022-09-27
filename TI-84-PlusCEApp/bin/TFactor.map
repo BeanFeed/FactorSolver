@@ -7,9 +7,9 @@ Section          Base   Top    High   Length
 .init.reruncheck D1A99B D1A99B             0h
 .init            D1A99B D1A9C5            2Ah
 .fini            D1A9C5 D1A9F9            34h
-.text            D1A9F9 D1D551          2B58h
-.data            D1D551 D1D554             3h
-.rodata          D1D554 D1D716           1C2h
+.text            D1A9F9 D1D55E          2B65h
+.data            D1D55E D1D561             3h
+.rodata          D1D561 D1D719           1B8h
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -85,14 +85,14 @@ _atoi                     = D1AF40
 _free                     = D1AF53
 _malloc                   = D1B010
 __alloc_base              = D052C6
-___maptab                 = D1D554
+___maptab                 = D1D561
 _npf_vpprintf             = D1B0AF
-JTI0_0                    = D1D5D4
-JTI0_1                    = D1D5F2
-JTI0_2                    = D1D637
-JTI0_3                    = D1D658
-JTI0_4                    = D1D670
-JTI0_5                    = D1D688
+JTI0_0                    = D1D5E1
+JTI0_1                    = D1D5FF
+JTI0_2                    = D1D644
+JTI0_3                    = D1D665
+JTI0_4                    = D1D67D
+JTI0_5                    = D1D695
 _npf_utoa_rev             = D1C819
 __printf_c                = D1C8E1
 __vsnprintf_c             = D1C900
@@ -103,9 +103,9 @@ __vsprintf_c              = D1C9B7
 __vprintf_c               = D1C9D5
 _npf_putc_std             = D1C9F5
 __sprintf_c               = D1CA05
-_.str                     = D1D6A0
-_.str.1                   = D1D6A4
-_.str.2                   = D1D6A8
+_.str                     = D1D6AD
+_.str.1                   = D1D6B1
+_.str.2                   = D1D6B5
 _strtol                   = D1CA2E
 __ishl                    = 000174
 __ishrs                   = 00017C
@@ -123,7 +123,7 @@ _vprintf                  = D1C9D5
 _snprintf                 = D1C98F
 _vsnprintf                = D1C900
 _sbrk                     = D1CC54
-__sbrkbase                = D1D551
+__sbrkbase                = D1D55E
 _toupper                  = 021E38
 _errno                    = D008DC
 __start                   = D1A99B
@@ -138,22 +138,19 @@ _AIsOne                   = D1CDB1
 _GCF                      = D1CF31
 _GCF3                     = D1CFB1
 _AGOne                    = D1D067
-_main                     = D1D317
-_.str                     = D1D6AC
-_.str.1                   = D1D6AD
-_.str.2                   = D1D6AF
-_.str.3                   = D1D6B8
-_.str.4                   = D1D6BB
-_.str.5                   = D1D6C9
-_.str.6                   = D1D6D4
-_.str.7                   = D1D6D8
-_.str.8                   = D1D6DB
-_.str.9                   = D1D6DE
-_.str.10                  = D1D6E0
-_.str.11                  = D1D6EB
-_.str.12                  = D1D6EF
-_.str.13                  = D1D6F3
-_.str.14                  = D1D6F7
-_.str.15                  = D1D6F9
-_.str.16                  = D1D6FB
-_.str.17                  = D1D700
+_main                     = D1D300
+_.str                     = D1D6B9
+_.str.1                   = D1D6BA
+_.str.2                   = D1D6BC
+_.str.3                   = D1D6C5
+_.str.4                   = D1D6C8
+_.str.5                   = D1D6D6
+_.str.6                   = D1D6E1
+_.str.7                   = D1D6E3
+_.str.8                   = D1D6EE
+_.str.9                   = D1D6F2
+_.str.10                  = D1D6F6
+_.str.11                  = D1D6FA
+_.str.12                  = D1D6FC
+_.str.13                  = D1D6FE
+_.str.14                  = D1D703

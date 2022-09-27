@@ -839,20 +839,20 @@ _main:
 	ld	hl, -35
 	call	__frameset
 	lea	hl, ix - 5
-	ld	(ix - 26), hl
-	lea	hl, ix - 10
 	ld	(ix - 23), hl
-	lea	hl, ix - 15
+	lea	hl, ix - 10
 	ld	(ix - 32), hl
-	lea	hl, ix - 20
+	lea	hl, ix - 15
 	ld	(ix - 29), hl
+	lea	hl, ix - 20
+	ld	(ix - 26), hl
 	ld	iy, -3145600
 	call	_os_ClrLCD
 	call	_os_HomeUp
 	call	_os_DrawStatusBar
 	ld	hl, 5
 	push	hl
-	ld	hl, (ix - 26)
+	ld	hl, (ix - 23)
 	push	hl
 	ld	hl, _.str.10
 	push	hl
@@ -870,7 +870,7 @@ _main:
 	pop	hl
 	ld	hl, 5
 	push	hl
-	ld	hl, (ix - 23)
+	ld	hl, (ix - 32)
 	push	hl
 	ld	hl, _.str.11
 	push	hl
@@ -888,7 +888,7 @@ _main:
 	pop	hl
 	ld	hl, 5
 	push	hl
-	ld	hl, (ix - 32)
+	ld	hl, (ix - 29)
 	push	hl
 	ld	hl, _.str.12
 	push	hl
@@ -906,7 +906,7 @@ _main:
 	pop	hl
 	ld	hl, 5
 	push	hl
-	ld	hl, (ix - 29)
+	ld	hl, (ix - 26)
 	push	hl
 	ld	hl, _.str.13
 	push	hl
@@ -922,37 +922,60 @@ _main:
 	call	_os_SetCursorPos
 	pop	hl
 	pop	hl
-	ld	hl, (ix - 23)
+	ld	hl, _.str.15
 	push	hl
-	call	_atoi
-	ld	(ix - 23), hl
-	pop	hl
+	ld	hl, _.str.14
+	push	hl
 	ld	hl, (ix - 32)
+	push	hl
+	call	_str_replace
+	pop	de
+	pop	de
+	pop	de
 	push	hl
 	call	_atoi
 	ld	(ix - 32), hl
 	pop	hl
+	ld	hl, _.str.15
+	push	hl
+	ld	hl, _.str.14
+	push	hl
 	ld	hl, (ix - 29)
+	push	hl
+	call	_str_replace
+	pop	de
+	pop	de
+	pop	de
 	push	hl
 	call	_atoi
 	ld	(ix - 29), hl
 	pop	hl
-	ld	hl, (ix - 23)
+	ld	hl, _.str.15
 	push	hl
-	call	_printf
-	pop	hl
-	ld	de, 1
-	ld	hl, (ix - 23)
+	ld	hl, _.str.14
+	push	hl
+	ld	hl, (ix - 26)
+	push	hl
+	call	_str_replace
+	pop	de
+	pop	de
+	pop	de
+	push	hl
+	call	_atoi
 	push	hl
 	pop	bc
+	pop	hl
+	ld	de, 1
+	ld	hl, (ix - 32)
+	push	hl
+	pop	iy
 	or	a, a
 	sbc	hl, de
 	jr	nz, BB5_2
-	ld	hl, (ix - 26)
+	ld	hl, (ix - 23)
 	push	hl
+	push	bc
 	ld	hl, (ix - 29)
-	push	hl
-	ld	hl, (ix - 32)
 	push	hl
 	call	_AIsOne
 	ld	(ix - 23), hl
@@ -975,31 +998,31 @@ _main:
 	jp	nz, BB5_8
 	jp	BB5_9
 BB5_2:
+	push	bc
 	ld	hl, (ix - 29)
 	push	hl
-	ld	hl, (ix - 32)
-	push	hl
-	push	bc
+	push	iy
+	ld	(ix - 26), bc
 	call	_GCF3
 	push	hl
 	pop	bc
 	pop	hl
 	pop	hl
 	pop	hl
-	ld	hl, (ix - 23)
-	call	__idivs
-	ld	(ix - 35), hl
 	ld	hl, (ix - 32)
 	call	__idivs
 	ld	(ix - 32), hl
 	ld	hl, (ix - 29)
-	ld	(ix - 23), bc
 	call	__idivs
 	ld	(ix - 29), hl
+	ld	hl, (ix - 26)
+	ld	(ix - 26), bc
+	call	__idivs
+	ld	(ix - 35), hl
 	ld	hl, 60
 	push	hl
 	call	_malloc
-	ld	bc, (ix - 35)
+	ld	bc, (ix - 32)
 	pop	hl
 	push	bc
 	pop	hl
@@ -1007,22 +1030,22 @@ BB5_2:
 	or	a, a
 	sbc	hl, de
 	jr	nz, BB5_4
-	ld	hl, (ix - 26)
+	ld	hl, (ix - 23)
+	push	hl
+	ld	hl, (ix - 35)
 	push	hl
 	ld	hl, (ix - 29)
-	push	hl
-	ld	hl, (ix - 32)
 	push	hl
 	call	_AIsOne
 	push	hl
 	pop	bc
 	jr	BB5_5
 BB5_4:
-	ld	hl, (ix - 26)
+	ld	hl, (ix - 23)
+	push	hl
+	ld	hl, (ix - 35)
 	push	hl
 	ld	hl, (ix - 29)
-	push	hl
-	ld	hl, (ix - 32)
 	push	hl
 	push	bc
 	call	_AGOne
@@ -1033,7 +1056,7 @@ BB5_5:
 	pop	hl
 	pop	hl
 	pop	hl
-	ld	iy, (ix - 23)
+	ld	iy, (ix - 26)
 	lea	hl, iy
 	ld	de, 1
 	or	a, a
@@ -1041,7 +1064,7 @@ BB5_5:
 	jr	z, BB5_7
 	push	bc
 	push	iy
-	ld	hl, _.str.14
+	ld	hl, _.str.16
 	push	hl
 	ld	hl, 60
 	push	hl
@@ -1073,7 +1096,7 @@ BB5_9:
 	call	_os_SetCursorPos
 	pop	hl
 	pop	hl
-	ld	hl, _.str.15
+	ld	hl, _.str.17
 	push	hl
 	call	_os_PutStrLine
 	pop	hl
@@ -1161,11 +1184,21 @@ _.str.13:
 	section	.rodata,"a",@progbits
 	private	_.str.14
 _.str.14:
-	db	"%d,%s", 0
+	db	"°", 0
 
 	section	.rodata,"a",@progbits
 	private	_.str.15
 _.str.15:
+	db	"-", 0
+
+	section	.rodata,"a",@progbits
+	private	_.str.16
+_.str.16:
+	db	"%d,%s", 0
+
+	section	.rodata,"a",@progbits
+	private	_.str.17
+_.str.17:
 	db	"Press Any Key To Exit", 0
 
 	ident	"clang version 15.0.0 (https://github.com/jacobly0/llvm-project 6d9aa7a16db70f3d02ae304b08d4a03011281fef)"
@@ -1182,7 +1215,6 @@ _.str.15:
 	extern	_os_DrawStatusBar
 	extern	__idivs
 	extern	__setflag
-	extern	_printf
 	extern	__Unwind_SjLj_Unregister
 	extern	__ixor
 	extern	__iremu

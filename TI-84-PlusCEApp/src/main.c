@@ -3,6 +3,7 @@
 #include <math.h>
 #include <ti/screen.h>
 #include <ti/getcsc.h>
+#include <ti/getkey.h>
 #include <stdio.h>
 
 char *str_replace(char *orig, char *rep, char *with) {
@@ -186,9 +187,9 @@ int main()
     os_SetCursorPos(3,0);
     os_GetStringInput("C: ", in3,5);
     os_SetCursorPos(4,0);
-    int a = atoi(in1);
-    int b = atoi(in2);
-    int c = atoi(in3);
+    int a = atoi(str_replace(in1,"\xB0", "-"));
+    int b = atoi(str_replace(in2,"\xB0", "-"));
+    int c = atoi(str_replace(in3,"\xB0", "-"));
     if(a == 1)
     {
         char *out = AIsOne(b,c,in0);

@@ -1,9 +1,7 @@
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <ti/screen.h>
-#include <ti/getcsc.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
 
 char *str_replace(char *orig, char *rep, char *with) {
     char *result; // the return string
@@ -173,26 +171,19 @@ char *AGOne(int a, int b, int c, char varChar[])
 
 int main()
 {
-    os_ClrHome();
-    char in0[5];
-    char in1[5];
-    char in2[5];
-    char in3[5];
-    os_GetStringInput("Variable: ", in0,5);
-    os_SetCursorPos(1,0);
-    os_GetStringInput("A: ", in1,5);
-    os_SetCursorPos(2,0);
-    os_GetStringInput("B: ", in2,5);
-    os_SetCursorPos(3,0);
-    os_GetStringInput("C: ", in3,5);
-    os_SetCursorPos(4,0);
-    int a = atoi(in1);
-    int b = atoi(in2);
-    int c = atoi(in3);
+    int a;
+    int b;
+    int c;
+    printf("A: ");
+    scanf("%d", &a);
+    printf("B: ");
+    scanf("%d", &b);
+    printf("C: ");
+    scanf("%d", &c);
     if(a == 1)
     {
-        char *out = AIsOne(b,c,in0);
-        os_PutStrLine(out);
+        char *out = AIsOne(b,c,"x");
+        printf("%s",out);
         if(strcmp(out,"No Solution") != 0) free(out);
     }
     else
@@ -201,14 +192,21 @@ int main()
         a /= gcf;
         b /= gcf;
         c /= gcf;
+        //printf("GFC: %d,A: %d,B: %d,C: %d\n",gcf,a,b,c);
         if(a == 1)
         {
-            char *out = AIsOne(b,c,in0);
-            if(gcf != 1) os_PutStrLine(strcat);
+            char *out = AIsOne(b,c,"x");
+            if(gcf != 1) printf("%d%s",gcf,out);
+            else printf("%s",out);
+            if(strcmp(out,"No Solution") != 0) free(out);
+        }else
+        {
+            char *out = AGOne(a,b,c,"x");
+            if(gcf != 1) printf("%d%s",gcf,out);
+            else printf("%s",out);
+            if(strcmp(out,"No Solution") != 0) free(out);
         }
     }
-    os_SetCursorPos(5,0);
-    os_PutStrLine("Press Any Key To Exit");
-    while(!os_GetCSC());
-    return 0; 
+    printf("\n");
+    return 0;
 }

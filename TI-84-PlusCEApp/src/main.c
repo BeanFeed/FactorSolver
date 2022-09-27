@@ -203,8 +203,19 @@ int main()
         c /= gcf;
         if(a == 1)
         {
-            char *out = AIsOne(b,c,in0);
-            if(gcf != 1) os_PutStrLine(strcat);
+            char *out = malloc(60);
+            out = AIsOne(b,c,in0);
+            if(gcf != 1) snprintf(out, 60,"%d,%s",gcf,out);
+            os_PutStrLine(out);
+            free(out);
+        }
+        else
+        {
+            char *out = malloc(60);
+            out = AGOne(a,b,c,in0);
+            if(gcf != 1) snprintf(out, 60,"%d,%s",gcf,out);
+            os_PutStrLine(out);
+            free(out);
         }
     }
     os_SetCursorPos(5,0);

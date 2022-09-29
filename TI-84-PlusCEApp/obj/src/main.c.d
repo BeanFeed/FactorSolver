@@ -1,4 +1,4 @@
-obj/src/main.c.bc: src\main.c \
+obj/src/main.c.src: src\main.c \
   C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\stdlib.h \
   C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\cdefs.h \
   C:\Users\Austin\Documents\Ti-84PlusCEDev\CEdev\include\string.h \

@@ -160,8 +160,9 @@ char *AGOne(int a, int b, int c, char varChar[])
                 sign2 = "+";
                 if(g2gcf < 0) sign2 = "";
                 snprintf(out2,20,"(%d%s%s%d)",g1gcf,varChar,sign2,g2gcf);
-                out1 = str_replace(out1, "1","");
-                out2 = str_replace(out2, "1","");
+                char *toReplace = strcat("1",varChar);
+                out1 = str_replace(out1, toReplace,varChar);
+                out2 = str_replace(out2, toReplace,varChar);
                 if(strcmp(out1,out2) == 0) out2 = "^2";
                 //if(gcf != 0) snprintf(out1,20,"%d%s",gcf,out1);
                 return strcat(out1,out2);
@@ -202,42 +203,89 @@ int main()
         os_PutStrLine(out);
         if(strcmp(out,"Cannot Factor") != 0) free(out);
     }
+    else if(a == -1)
+    {
+        int gcf = -1;
+        a *= -1;
+        b *= -1;
+        c *= -1;
+        char out1[60];
+        char *out = AIsOne(b,c,in0);
+        if(strcmp(out,"Cannot Factor") != 0)
+        {
+            sprintf(out1,"%d%s",gcf,out);
+            os_PutStrLine(out1);
+        }
+        else os_PutStrLine(out);
+        free(out);
+    }
     else
     {
-        int gcf = GCF3(a,b,c);
-        dbg_printf("GCF: %d\n",gcf);
-        if(gcf < 1)
+        if(b == 0 && a < 0)
         {
-            a /= gcf;
-            b /= gcf;
-            c /= gcf;
-            if(a == 1)
+            int gcf = -1;
+            a *= -1;
+            c *= -1;
+            char *out = AGOne(a,b,c,in0);
+            char out1[60];
+            if(strcmp(out,"Cannot Factor") != 0)
             {
-                char *out = AIsOne(b,c,in0);
-                char out1[60];
-                dbg_printf("%s\n",out);
-                if(gcf != 1) sprintf(out1,"%d%s",gcf,out);
-                dbg_printf("%s\n",out1);
+                sprintf(out1, "%d%s",gcf,out);
                 os_PutStrLine(out1);
-                free(out);
+            }
+            else os_PutStrLine(out);
+            free(out);
+        }
+        else
+        {
+            int gcf = GCF3(a,b,c);
+            dbg_printf("GCF: %d\n",gcf);
+            dbg_printf("A: %d, B: %d, C: %d\n",a,b,c);
+            if(gcf > 1)
+            {
+                a /= gcf;
+                b /= gcf;
+                c /= gcf;
+                if(a == 1)
+                {
+                    char *out = AIsOne(b,c,in0);
+                    char out1[60];
+                    dbg_printf("%s\n",out);
+                    if(gcf != 1) sprintf(out1,"%d%s",gcf,out);
+                    dbg_printf("%s\n",out1);
+                    os_PutStrLine(out1);
+                    free(out);
+                }
+                else if(a == -1)
+                {
+                    gcf *= -1;
+                    b *= -1;
+                    c *= -1;
+                    char *out = AIsOne(b,c,in0);
+                    char out1[60];
+                    if(gcf != 1) sprintf(out1,"%d%s",gcf,out);
+                    os_PutStrLine(out1);
+                    free(out);
+                }
+                else
+                {
+                    char *out = AGOne(a,b,c,in0);
+                    char out1[60];
+                    dbg_printf("%s\n",out);
+                    if(gcf != 1) sprintf(out1, "%d%s",gcf,out);
+                    dbg_printf("%s\n",out1);
+                    os_PutStrLine(out1);
+                    free(out);
+                }
             }
             else
             {
                 char *out = AGOne(a,b,c,in0);
-                char out1[60];
-                dbg_printf("%s\n",out);
-                if(gcf != 1) sprintf(out1, "%d%s",gcf,out);
-                dbg_printf("%s\n",out1);
-                os_PutStrLine(out1);
+                os_PutStrLine(out);
                 free(out);
-            }
+            } 
         }
-        else
-        {
-            char *out = AGOne(a,b,c,in0);
-            os_PutStrLine(out);
-            free(out);
-        }
+        
         
     }
     os_SetCursorPos(5,0);

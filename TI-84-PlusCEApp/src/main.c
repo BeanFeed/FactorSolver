@@ -149,12 +149,16 @@ char *AGOne(int a, int b, int c, char varChar[])
                 snprintf(out2,20,"(%d%s%s%d)",(k/g2gcf),varChar,sign2,(c/g2gcf));
                 //printf("checkpoint6\n");
                 //printf("Out1: %s\nOut2: %s\n",out1,out2);
+                dbg_printf("out1: %s\nout2: %s\n",out1,out2);
                 if(strcmp(out1,out2) != 0)
                 {
                     //printf("checkpoint7\n");
-                    snprintf(out2,20,"(%d%s%s%d)",(k/(-1 * g2gcf)),varChar,sign2,(c/(-1 * g2gcf)));
-                    //printf("checkpoint9\n");
                     g2gcf *= -1;
+                    if(c/g2gcf < 0) sign2 = "";
+                    snprintf(out2,20,"(%d%s%s%d)",(k/g2gcf),varChar,sign2,(c/g2gcf));
+                    dbg_printf("out1: %s\nout2: %s\n",out1,out2);
+                    //printf("checkpoint9\n");
+                    
                 }
                 if(strcmp(out1,out2) != 0) return "Cannot Factor";
                 sign2 = "+";

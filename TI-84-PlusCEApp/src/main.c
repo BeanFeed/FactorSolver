@@ -179,6 +179,7 @@ char *AGOne(int a, int b, int c, char varChar[])
 int main()
 {
     os_ClrHome();
+    os_SetCursorPos(0,0);
     char in0[5];
     char in1[5];
     char in2[5];
